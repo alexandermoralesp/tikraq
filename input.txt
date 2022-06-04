@@ -2,3 +2,4 @@ var yupay1 = 1;
 var yupay2 = 2;
 var tukusqa = yupay1 + yupay2;
 
+
