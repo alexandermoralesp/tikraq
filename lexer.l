@@ -34,8 +34,12 @@ int buscar_palabra(char *palabra);
                     }
                 }
             }/*fin procesar palabras*/
-                
 .           /*ignorar cualquier otro símbolo*/
+^nisqa      {estado = FUNCION}
+^imprimy    {estado = IMPRIMIR}
+^manta      {estado = FOR}
+^mientras   {estado = WHILE}
+^kutichiy   {estado = return}
 %%
 
 /* Sección CODIGO USUARIO */
