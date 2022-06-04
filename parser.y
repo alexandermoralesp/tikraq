@@ -2,6 +2,7 @@
 
 /* Sección DEFINICIONES */
 %{
+int agregar_palabra(int tipo, char *palabra);
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -10,37 +11,49 @@ int yyerror(char *s);
 %}
 
 /* Sección REGLAS */
-%token IDENTIFICADOR OPERADOR PARA PARC 
+%token FININSTRUCCION
+%token IDENTIFICADOR
+%token ASIGNADOR
+%token OPERADOR
+%token PARAIZQ PARADER
+%token NUMERICO
+
 %left '+' '-'
 %left '*' '/'
 %left '^'
 %right '('
-%lefft ')'
+%left ')'
 
 %%
-expresion: IDENTIFICADOR OPERADOR expresion  {printf("Exp. arit compuesta \n");}
-    | PARA expresion PARC  {printf("Exp. aritmetica con parentesis \n");}
-    | IDENTIFICADOR         {printf("Exp. aritmetica simple \n");}
-    ;
-E: E'+'E {$$ = $1 + $3;}
-    | E'-'E {$$ = $1 - $3;}
-    | E'*'E {$$ = $1 * $3;}
-    | E'/'E {$$ = $1 / $3;}
-    | E'^'E {$$ = $1 ^ $3;}
-    | IDENTIFICADOR {$$ = $1;}
-    ;
+programa:
+    declaracion programa
+    | expresion programa
+    | declaracion
+    | expresion
 
+declaracion:
+    IDENTIFICADOR {printf("Variable declarada \n");}
+    | IDENTIFICADOR ASIGNADOR expresion {printf("Variable decalarada con valor inicial\n");}
+
+expresion:
+    aritmetica {printf("Expresion aritmetica\n");}
+aritmetica:
+    aritmetica OPERADOR aritmetica
+    | PARAIZQ aritmetica PARADER
+    | IDENTIFICADOR
+    | NUMERICO
 %%
 
 /* Sección CODIGO USUARIO */
 FILE *yyin;
 int main() {
+    agregar_palabra(ASIGNADOR,"=");
     agregar_palabra(OPERADOR,"+");
     agregar_palabra(OPERADOR,"-");
     agregar_palabra(OPERADOR,"*");
     agregar_palabra(OPERADOR,"/");
-    agregar_palabra(PARA,"(");
-    agregar_palabra(PARC,")");
+    agregar_palabra(PARAIZQ,"(");
+    agregar_palabra(PARADER,")");
     do {
         yyparse();
     } while ( !feof(yyin) );
