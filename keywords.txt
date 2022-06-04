@@ -33,4 +33,4 @@ elif -> mana chayqa
 if -> sichus
 or -> icha
 yield -> panpa
-print -> imprimiy
+print -> qawachiy

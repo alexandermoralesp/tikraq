@@ -18,13 +18,20 @@
 (" ") {}
 . return yytext[0];
 ^var       {printf("auto");}  
-^funcion   {printf("void");}
-^si        {printf("if");}
-^tambien   {printf("else if");}
-^sino      {printf("else");}
-^mientras  {printf("while");}
-^para      {printf("para");}
-^imprimir  {printf("print");}
+^nisqa {printf("func");}
+^pantasqa       {printf("false");}
+^chiqap         {printf("true");}
+^sichus        {printf("if");}
+^manachayqa {printf("else if");}
+^manachayqa {printf("else");}
+^chaykama {printf("while");}
+^sapakamapaq      {printf("for");}
+^qawachiy {printf("print");}
+^icha   {printf("or");}
+^y      {printf("and");}
+^hinalla        {printf("continue");}
+^pakiy {printf("break");}
+
 %%
   
 int yywrap()

@@ -502,7 +502,7 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    18,    18,    22,    23,    24,    25,    26,    27
+       0,    19,    19,    23,    24,    25,    26,    27,    28
 };
 #endif
 
@@ -1064,8 +1064,8 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* exAritmetica: E  */
-#line 18 "parser.y"
-               {
+#line 19 "parser.y"
+                {
          printf("\nResultado = %d\n", yyval);
          return 0;
         }
@@ -1073,37 +1073,37 @@ yyreduce:
     break;
 
   case 3: /* E: E '+' E  */
-#line 22 "parser.y"
+#line 23 "parser.y"
          {yyval = yyvsp[-2] + yyvsp[0];}
 #line 1079 "parser.tab.c"
     break;
 
   case 4: /* E: E '-' E  */
-#line 23 "parser.y"
+#line 24 "parser.y"
            {yyval = yyvsp[-2] - yyvsp[0];}
 #line 1085 "parser.tab.c"
     break;
 
   case 5: /* E: E '*' E  */
-#line 24 "parser.y"
+#line 25 "parser.y"
            {yyval = yyvsp[-2] * yyvsp[0];}
 #line 1091 "parser.tab.c"
     break;
 
   case 6: /* E: E '/' E  */
-#line 25 "parser.y"
+#line 26 "parser.y"
            {yyval = yyvsp[-2] / yyvsp[0];}
 #line 1097 "parser.tab.c"
     break;
 
   case 7: /* E: '(' E ')'  */
-#line 26 "parser.y"
+#line 27 "parser.y"
              {yyval = (yyvsp[-1]);}
 #line 1103 "parser.tab.c"
     break;
 
   case 8: /* E: NUMBER  */
-#line 27 "parser.y"
+#line 28 "parser.y"
              {yyval = yyvsp[0];}
 #line 1109 "parser.tab.c"
     break;
