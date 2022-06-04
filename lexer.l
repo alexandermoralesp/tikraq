@@ -16,17 +16,22 @@ int buscar_palabra(char *palabra);
 
 /* Sección REGLAS */
 %%
-;        {estado = BUSCAR; return FININSTRUCCION;}
-^var        {estado = IDENTIFICADOR;}
-\=          { printf("(lexico) ASIGNADOR\n"); estado = BUSCAR; return ASIGNADOR;}
-\+|\-|\/|\* { printf("(lexico) OPERADOR\n"); return OPERADOR;}
-\(          { printf("(lexico) PARAIZQ\n"); return PARAIZQ;}
+\;           {estado = BUSCAR; return FININSTRUCCION;}
+\{          {printf("(lexico) BLOQUEIZQ\n"); return BLOQUEIZQ;}
+\}          { printf("(lexico) BLOQUEDER\n"); return BLOQUEDER;}
+\(          {printf("(lexico) PARAIZQ\n"); return PARAIZQ;}
 \)          { printf("(lexico) PARADER\n"); return PARADER;}
+var        { printf("(lexico) DECLARADOR\n"); estado = IDENTIFICADOR; return DECLARADOR;}
+nisqa      { printf("(lexico) DECLARADOR\n");  estado = IDENTIFICADOR; return DECLARADOR;}
+\=          { printf("(lexico) ASIGNADOR\n"); return ASIGNADOR;}
+\+|\-|\/|\* { printf("(lexico) OPERADOR\n"); return OPERADOR;}
+\,          { printf("(lexico) SEPARADOR\n"); return SEPARADOR;}
 [0-9]+      { printf("(lexico) NUMERICO\n"); return NUMERICO;}
 [a-zA-Z][a-zA-Z0-9]*  {/*procesar palabras*/
                 if (estado != BUSCAR) {
                     agregar_palabra(estado, yytext);
                     printf("(lexico) IDENTIFICADOR\n");
+                    estado = BUSCAR; 
                     return IDENTIFICADOR;
                 }
                 else {
@@ -39,7 +44,7 @@ int buscar_palabra(char *palabra);
                 }
             }/*fin procesar palabras*/
 
-.           /*ignorar cualquier otro símbolo*/
+" "           /*ignorar cualquier otro símbolo*/
 %%
 
 /* Sección CODIGO USUARIO */

@@ -1,0 +1,17 @@
+var a1 = 1;
+var a2 = 2;
+var a3 = 3;
+
+nisqa saludar() {
+    var a = 0;
+    var i = 0;
+};
+
+nisqa foo(var in1) {
+    var t = in1+3;
+};
+
+foo();
+
+
+
