@@ -29,6 +29,7 @@ E: E'+'E {$$ = $1 + $3;}
     | E'^'E {$$ = $1 ^ $3;}
     | IDENTIFICADOR {$$ = $1;}
     ;
+
 %%
 
 /* Sección CODIGO USUARIO */

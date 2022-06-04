@@ -9,7 +9,7 @@ nisqa foo() {
     kutichiy a1 + a2 + a3;
 }
 nisqa despedirse() {
-    console.log("Despedirse");
+    imprimiy("Despedirse");
 }
 
 nisqa saludar() {
