@@ -11,13 +11,24 @@ int yyerror(char *s);
 
 /* Sección REGLAS */
 %token IDENTIFICADOR OPERADOR PARA PARC 
+%left '+' '-'
+%left '*' '/'
+%left '^'
+%right '('
+%lefft ')'
 
 %%
 expresion: IDENTIFICADOR OPERADOR expresion  {printf("Exp. arit compuesta \n");}
     | PARA expresion PARC  {printf("Exp. aritmetica con parentesis \n");}
     | IDENTIFICADOR         {printf("Exp. aritmetica simple \n");}
     ;
-
+E: E'+'E {$$ = $1 + $3;}
+    | E'-'E {$$ = $1 - $3;}
+    | E'*'E {$$ = $1 * $3;}
+    | E'/'E {$$ = $1 / $3;}
+    | E'^'E {$$ = $1 ^ $3;}
+    | IDENTIFICADOR {$$ = $1;}
+    ;
 %%
 
 /* Sección CODIGO USUARIO */
@@ -31,7 +42,7 @@ int main() {
     agregar_palabra(PARC,")");
     do {
         yyparse();
-    }while ( !feof(yyin) );
+    } while ( !feof(yyin) );
     
     return 0;
 }

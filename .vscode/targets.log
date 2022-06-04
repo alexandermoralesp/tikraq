@@ -1,14 +1,13 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Sat May 28 07:44:32 2022
+# Make data base, printed on Sat Jun  4 15:06:59 2022
 
 # Variables
 
@@ -17,23 +16,21 @@ GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # environment
-GNOME_SHELL_SESSION_MODE = ubuntu
+GNOME_SHELL_SESSION_MODE = pop
 # environment
 SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
-SNAP_INSTANCE_KEY = 
+STARSHIP_SESSION_KEY = 2232316137252505
 # environment
-STARSHIP_SESSION_KEY = 2749821294298202
+GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-1f17ce8d-38cf-4264-b036-3a547d0423c2.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-f261299a-e2eb-47a6-9aa2-3e7a1efdbac3.sock
 # environment
-LC_NAME = es_PE.UTF-8
+MANDATORY_PATH = /usr/share/gconf/pop.mandatory.path
 # environment
-LC_NUMERIC = es_PE.UTF-8
+VSCODE_CWD = /home/moralespanitz
 # environment
-VSCODE_CWD = /home/moralespanitz/Alexander/tikraq
-# environment
-LC_ADDRESS = es_PE.UTF-8
+WINDOWPATH = 2
 # default
 MAKE_COMMAND := make
 # environment
@@ -41,21 +38,19 @@ QT_ACCESSIBILITY = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-SNAP_INSTANCE_NAME = code
-# environment
-GDK_PIXBUF_MODULEDIR = /snap/code/97/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
-# environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
-PWD = /home/moralespanitz/Alexander/tikraq
+PWD = /home/moralespanitz/UTEC/Compilers/tikraq
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
-XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-OLDPWD = /home/moralespanitz/Alexander
+XDG_DATA_DIRS = /usr/share/pop:/usr/share/gnome:/home/moralespanitz/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+OLDPWD = /home/moralespanitz
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
@@ -67,55 +62,64 @@ VSCODE_CODE_CACHE_PATH = /home/moralespanitz/.config/Code/CachedData/c3511e6c69b
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.XDX4M1
+XAUTHORITY = /run/user/1000/gdm/Xauthority
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
-# environment
-GNOME_TERMINAL_SERVICE = :1.109
 # makefile
 MAKEFLAGS = pqrR
 # makefile
-CURDIR := /home/moralespanitz/Alexander/tikraq
+CURDIR := /home/moralespanitz/UTEC/Compilers/tikraq
 # environment
+ 
 VSCODE_PIPE_LOGGING = true
+ 
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# environment
-LESSOPEN = | /usr/bin/lesspipe %s
+ 
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+ 
 # automatic
+ 
 *D = $(patsubst %/,%,$(dir $*))
+ 
 # environment
+ 
 MFLAGS = -pqrR
+ 
 # environment
+ 
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+ 
 # default
+ 
 .SHELLFLAGS := -c
 # environment
-WAYLAND_DISPLAY = wayland-0
-# environment
-XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_CONFIG_DIRS = /etc/xdg/xdg-pop:/etc/xdg
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
-XDG_SESSION_DESKTOP = ubuntu
+XDG_SESSION_DESKTOP = pop
 # makefile (from 'makefile', line 1)
 MAKEFILE_LIST := makefile
 # environment
-SNAP_REEXEC = 
+CONDA_SHLVL = 0
 # automatic
 @F = $(notdir $@)
 # environment
+ZSH = /home/moralespanitz/.oh-my-zsh
+# environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 2851
+VSCODE_PID = 7563
 # environment
-XDG_SESSION_TYPE = wayland
+XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/ubuntu:@/tmp/.ICE-unix/2086,unix/ubuntu:/tmp/.ICE-unix/2086
+CONDA_PYTHON_EXE = /home/moralespanitz/miniconda3/bin/python
+# environment
+SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/1996,unix/pop-os:/tmp/.ICE-unix/1996
 # automatic
 *F = $(notdir $*)
 # environment
@@ -137,91 +141,81 @@ MAKECMDGOALS := all
 # environment
 XMODIFIERS = @im=ibus
 # environment
-SHLVL = 1
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/7c049e7b_0c8f_49b0_af22_3c1f526bdf65
+SHLVL = 0
 # environment
 MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-SNAP_COOKIE = uidDw0IGGq5HdD3P_-dkW2EmjVoR96QwiYfzvVXNALqqtUZrA4_G
-# environment
-PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+PATH = /home/moralespanitz/miniconda3/condabin:/home/moralespanitz/Apps/sonar-scanner-4.7.0.2747-linux/bin/:/home/moralespanitz/.jdks/corretto-1.8.0_332/bin/:/usr/local/nvim-linux64/bin:/home/moralespanitz/.cargo/bin:/home/moralespanitz/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
 # default
 MAKEFILES := 
-# environment
-LC_MONETARY = es_PE.UTF-8
 # automatic
 ^F = $(notdir $^)
 # environment
-SNAP_USER_COMMON = /home/moralespanitz/snap/code/common
+INVOCATION_ID = a8677ca6f5b1440daf5919a06dc787cd
 # environment
-LC_TIME = es_PE.UTF-8
-# environment
-SNAP = /snap/code/97
-# environment
-SNAP_REVISION = 97
-# environment
-SNAP_REAL_HOME = /home/moralespanitz
+SONAR_TOKEN = 575986245566a175c5dd333eb33f11a30ee8945b
 # environment
 VSCODE_LOG_NATIVE = false
 # environment
 USERNAME = moralespanitz
-# environment
-GNOME_SETUP_DISPLAY = :1
-# environment
-LC_TELEPHONE = es_PE.UTF-8
-# environment
-LESSCLOSE = /usr/bin/lesspipe %s %s
 # automatic
 ?F = $(notdir $?)
 # environment
+GTK_IM_MODULE = ibus
+# environment
 XDG_CURRENT_DESKTOP = Unity
 # environment
-LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LS_COLORS = 
 # automatic
 +F = $(notdir $+)
 # environment
-DESKTOP_SESSION = ubuntu
+LESS = -R
 # environment
-ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+DESKTOP_SESSION = pop
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = pop:GNOME
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
 LOGNAME = moralespanitz
 # environment
-SNAP_ARCH = amd64
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # makefile
-.DEFAULT_GOAL := 
+.DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 2232
+SYSTEMD_EXEC_PID = 2030
 # environment
-DISPLAY = :0
+DISPLAY = :1
 # environment
 USER = moralespanitz
 # environment
-GTK_MODULES = gail:atk-bridge
+GTK_MODULES = gail:atk-bridge:appmenu-gtk-module
+# environment
+DEFAULTS_PATH = /usr/share/gconf/pop.default.path
 # default
 MAKE_VERSION := 4.3
 # environment
-DISABLE_WAYLAND = 1
+MANAGERPID = 1789
 # environment
-SNAP_DATA = /var/snap/code/97
+STARSHIP_SHELL = zsh
 # environment
-SNAP_CONTEXT = uidDw0IGGq5HdD3P_-dkW2EmjVoR96QwiYfzvVXNALqqtUZrA4_G
+GIO_LAUNCHED_DESKTOP_FILE_PID = 7563
 # environment
-LC_MEASUREMENT = es_PE.UTF-8
+PAGER = less
 # environment
-STARSHIP_SHELL = bash
-# environment
-LC_PAPER = es_PE.UTF-8
+_ = /usr/share/code/code
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-COLORTERM = truecolor
+GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-GDK_PIXBUF_MODULE_FILE = /home/moralespanitz/snap/code/common/.cache/gdk-pixbuf-loaders.cache
+_CE_M = 
+# environment
+JOURNAL_STREAM = 8:40124
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -234,46 +228,24 @@ QT_IM_MODULE = ibus
 ELECTRON_RUN_AS_NODE = 1
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-36192699-1.67.2-main.sock
-# environment
-TERM = xterm-256color
-# environment
-SNAP_NAME = code
-# environment
-GSETTINGS_SCHEMA_DIR = /snap/code/97/usr/share/glib-2.0/schemas
-# environment
-IM_CONFIG_PHASE = 1
-# environment
-PAPERSIZE = a4
 # default
 .RECIPEPREFIX := 
 # automatic
 <F = $(notdir $<)
-# environment
-SNAP_VERSION = c3511e6c
 # default
 SUFFIXES := 
-# environment
-VSCODE_CLI = 1
-# environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# environment
-VTE_VERSION = 6402
-# environment
-SNAP_COMMON = /var/snap/code/common
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
-SNAP_USER_DATA = /home/moralespanitz/snap/code/97
-# environment
 XDG_MENU_PREFIX = gnome-
 # environment
-GDMSESSION = ubuntu
+CONDA_EXE = /home/moralespanitz/miniconda3/bin/conda
 # environment
-LC_IDENTIFICATION = es_PE.UTF-8
+_CE_CONDA = 
 # environment
-SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
+GDMSESSION = pop
 # variable set hash-table stats:
-# Load=130/1024=13%, Rehash=0, Collisions=13/159=8%
+# Load=111/1024=11%, Rehash=0, Collisions=5/144=3%
 
 # Pattern-specific Variable Values
 
@@ -282,9 +254,9 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 2051, inode 660260): 9 files, no impossibilities.
+# . (device 2051, inode 12058663): 16 files, no impossibilities.
 
-# 9 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -298,34 +270,64 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
 all:
 #  Command line target.
-#  Implicit rule search has been done.
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  File does not exist.
-#  File has not been updated.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := all
+# automatic
+# * := 
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from 'makefile', line 2):
+	flex lexer.l
+	bison -d parser.y
+	gcc -c lex.yy.c parser.tab.c
+	gcc -o lexpar lex.yy.o parser.tab.o -ll
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-28 07:42:56.625452663
+#  Last modified 2022-06-04 14:37:22.603357017
 #  File has been updated.
 #  Successfully updated.
 
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=4/1024=0%, Rehash=0, Collisions=0/14=0%
+# Load=4/1024=0%, Rehash=0, Collisions=0/16=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 14 / storage = 119 B / avg = 8 B
-# current buf: size = 8162 B / used = 119 B / count = 14 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 21 / storage = 198 B / avg = 9 B
+# current buf: size = 8162 B / used = 198 B / count = 21 / avg = 9 B
 
-# strcache performance: lookups = 18 / hit rate = 22%
+# strcache performance: lookups = 28 / hit rate = 25%
 # hash-table stats:
-# Load=14/8192=0%, Rehash=0, Collisions=0/18=0%
-# Finished Make data base on Sat May 28 07:44:32 2022
+# Load=21/8192=0%, Rehash=0, Collisions=0/28=0%
+# Finished Make data base on Sat Jun  4 15:06:59 2022
 
  
