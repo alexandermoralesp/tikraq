@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/moralespanitz/Alexander/tikraq'
+make: Leaving directory '/home/moralespanitz/Alexander/tikraq'
+ 
+make: *** No targets.  Stop.
+
