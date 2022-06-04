@@ -16,7 +16,7 @@ int buscar_palabra(char *palabra);
 
 /* Sección REGLAS */
 %%
-\n|;        {estado = BUSCAR;}
+;        {estado = BUSCAR; return FININSTRUCCION;}
 ^var        {estado = IDENTIFICADOR;}
 \=          { printf("(lexico) ASIGNADOR\n"); estado = BUSCAR; return ASIGNADOR;}
 \+|\-|\/|\* { printf("(lexico) OPERADOR\n"); return OPERADOR;}
@@ -26,6 +26,7 @@ int buscar_palabra(char *palabra);
 [a-zA-Z][a-zA-Z0-9]*  {/*procesar palabras*/
                 if (estado != BUSCAR) {
                     agregar_palabra(estado, yytext);
+                    printf("(lexico) IDENTIFICADOR\n");
                     return IDENTIFICADOR;
                 }
                 else {

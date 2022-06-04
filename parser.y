@@ -26,10 +26,12 @@ int yyerror(char *s);
 
 %%
 programa:
-    declaracion programa
-    | expresion programa
-    | declaracion
-    | expresion
+    instruccion programa
+    | instruccion
+
+instruccion:
+    declaracion FININSTRUCCION
+    | expresion FININSTRUCCION
 
 declaracion:
     IDENTIFICADOR {printf("Variable declarada \n");}
@@ -47,6 +49,7 @@ aritmetica:
 /* Sección CODIGO USUARIO */
 FILE *yyin;
 int main() {
+    agregar_palabra(FININSTRUCCION,";");
     agregar_palabra(ASIGNADOR,"=");
     agregar_palabra(OPERADOR,"+");
     agregar_palabra(OPERADOR,"-");
