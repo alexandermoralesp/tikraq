@@ -1,54 +1,45 @@
-/* Analizador sintactico para reconocer sentencias  */
 
-/* Sección DEFINICIONES */
 %{
-#include <stdio.h>
-#include <stdlib.h>
-
-int yylex();
-int yyerror(char *s);
+   /* Definition section */
+  #include<stdio.h>
+  int flag=0;
+  
+  int yylex();
+  int yyerror(char *s);
 %}
-
-/* Sección REGLAS */
-%token IDENTIFICADOR OPERADOR PARA PARC 
+  
+%token NUMBER
 %left '+' '-'
 %left '*' '/'
-%left '^'
 %right '('
-%lefft ')'
+%left ')'
 
+/* Rule Section */
 %%
-expresion: IDENTIFICADOR OPERADOR expresion  {printf("Exp. arit compuesta \n");}
-    | PARA expresion PARC  {printf("Exp. aritmetica con parentesis \n");}
-    | IDENTIFICADOR         {printf("Exp. aritmetica simple \n");}
-    ;
+exAritmetica: E {
+         printf("\nResultado = %d\n", $$);
+         return 0;
+        };
 E: E'+'E {$$ = $1 + $3;}
-    | E'-'E {$$ = $1 - $3;}
-    | E'*'E {$$ = $1 * $3;}
-    | E'/'E {$$ = $1 / $3;}
-    | E'^'E {$$ = $1 ^ $3;}
-    | IDENTIFICADOR {$$ = $1;}
+    |E'-'E {$$ = $1 - $3;}
+    |E'*'E {$$ = $1 * $3;}
+    |E'/'E {$$ = $1 / $3;}
+    |'('E')' {$$ = ($2);}
+    | NUMBER {$$ = $1;}
     ;
-
 %%
-
-/* Sección CODIGO USUARIO */
-FILE *yyin;
-int main() {
-    agregar_palabra(OPERADOR,"+");
-    agregar_palabra(OPERADOR,"-");
-    agregar_palabra(OPERADOR,"*");
-    agregar_palabra(OPERADOR,"/");
-    agregar_palabra(PARA,"(");
-    agregar_palabra(PARC,")");
-    do {
-        yyparse();
-    } while ( !feof(yyin) );
-    
-    return 0;
+  
+//driver code
+void main()
+{
+   printf("Ingresar una expresion aritmetica : \n");
+  
+   yyparse();
+   if(flag==0) printf("\n Expresion aritmetica valida \n\n");
 }
-
-int yyerror(char *s) {
-    fprintf(stderr, "JS:%s\n", s);
-    return 0;
+  
+int yyerror(char *s)
+{
+   printf("\nExpresion invalida\n\n");
+   flag=1;
 }
