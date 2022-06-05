@@ -29,6 +29,7 @@ int yyerror(char *s);
 %left '+' '-'
 %left '*' '/'
 %left '^'
+%left '<' '=' "<=" ">="
 %right '('
 %left ')'
 
