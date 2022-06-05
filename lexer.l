@@ -26,6 +26,7 @@ imprimiy                    { printf("(lexico) PRIMITIVO\n"); return PRIMITIVO;}
 kutichiy                    { printf("(lexico) RETORNO\n");  return RETORNO;}
 sichus                      { printf("(lexico) IF\n"); return IF;}
 manachayqa                  { printf("(lexico) ELSE\n");  return ELSE;}
+chaykama                    { printf("(lexico) WHILE\n");  return WHILE;}
 \=                          { printf("(lexico) ASIGNADOR\n"); return ASIGNADOR;}
 \+|\-|\/|\*|\=\=|\<|\>|\<\=|\>\=         { printf("(lexico) OPERADOR\n"); return OPERADOR;}
 \,                          { printf("(lexico) SEPARADOR\n"); return SEPARADOR;}

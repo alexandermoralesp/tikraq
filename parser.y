@@ -25,6 +25,7 @@ int yyerror(char *s);
 %token PRIMITIVO
 %token IF
 %token ELSE
+%token WHILE
 
 %left '+' '-'
 %left '*' '/'
@@ -43,6 +44,7 @@ programa:
 
 instruccion:
     bloque_if
+    | bloque_while
     | declaracion 
     | asignacion 
     | retorno
@@ -104,6 +106,9 @@ bloque_else:
     ELSE bloque_instrucciones {printf("Bloque else\n");}
     | %empty
 
+bloque_while:
+    WHILE PARAIZQ expresion PARADER bloque_instrucciones {printf("Bloque while\n");}
+
 %%
 
 /* Sección CODIGO USUARIO */
@@ -117,6 +122,7 @@ int main() {
     agregar_palabra(TIPO,"manaimapas");
     agregar_palabra(IF,"sichus");
     agregar_palabra(ELSE,"manachayqa");
+    agregar_palabra(WHILE,"chaykama");
     agregar_palabra(ASIGNADOR,"=");
     agregar_palabra(OPERADOR,"+");
     agregar_palabra(OPERADOR,"-");

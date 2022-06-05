@@ -4,6 +4,9 @@ yupay a3 = 3;
 
 yupay foo(yupay in1) {
     yupay t = in1+3;
+    chaykama (t < 10) {
+        in1 = in1-1;
+    }
     kutichiy t+10;
 };
 
