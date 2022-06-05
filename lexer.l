@@ -21,8 +21,9 @@ int buscar_palabra(char *palabra);
 \}          { printf("(lexico) BLOQUEDER\n"); return BLOQUEDER;}
 \(          {printf("(lexico) PARAIZQ\n"); return PARAIZQ;}
 \)          { printf("(lexico) PARADER\n"); return PARADER;}
-var        { printf("(lexico) DECLARADOR\n"); estado = IDENTIFICADOR; return DECLARADOR;}
-nisqa      { printf("(lexico) DECLARADOR\n");  estado = IDENTIFICADOR; return DECLARADOR;}
+var         { printf("(lexico) DECLARADOR\n"); estado = IDENTIFICADOR; return DECLARADOR;}
+nisqa       { printf("(lexico) DECLARADOR\n");  estado = IDENTIFICADOR; return DECLARADOR;}
+kutichiy    { printf("(lexico) RETORNO\n");  return RETORNO;}
 \=          { printf("(lexico) ASIGNADOR\n"); return ASIGNADOR;}
 \+|\-|\/|\* { printf("(lexico) OPERADOR\n"); return OPERADOR;}
 \,          { printf("(lexico) SEPARADOR\n"); return SEPARADOR;}

@@ -9,6 +9,7 @@ nisqa saludar() {
 
 nisqa foo(var in1) {
     var t = in1+3;
+    kutichiy t+10;
 };
 
 foo();

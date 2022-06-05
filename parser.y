@@ -20,6 +20,7 @@ int yyerror(char *s);
 %token OPERADOR
 %token PARAIZQ PARADER
 %token NUMERICO
+%token RETORNO
 
 %left '+' '-'
 %left '*' '/'
@@ -38,7 +39,9 @@ programa:
 instruccion:
     declaracion FININSTRUCCION
     | asignacion FININSTRUCCION
+    | retorno FININSTRUCCION
     | expresion FININSTRUCCION
+
 
 declaracion:
     DECLARADOR IDENTIFICADOR {printf("Declaracion de variable\n");}
@@ -47,6 +50,9 @@ declaracion:
 
 asignacion:
     IDENTIFICADOR ASIGNADOR expresion {printf("Asignacion\n");}
+
+retorno:
+    RETORNO expresion {printf("Retorno\n");}
 
 expresion:
     aritmetica {printf("Expresion aritmetica\n");}
