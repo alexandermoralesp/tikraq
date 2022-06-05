@@ -17,28 +17,14 @@
 
 /* Rule Section */
 %%
-/* exAritmetica: E { */
-/*          printf("\nResultado = %d\n", $$); */
-/*          return 0; */
-/*         }; */
-/* E: E'+'E {$$ = $1 + $3;} */
-/*     |E'-'E {$$ = $1 - $3;} */
-/*     |E'*'E {$$ = $1 * $3;} */
-/*     |E'/'E {$$ = $1 / $3;} */
-/*     |'('E')' {$$ = ($2);} */
-/*     | NUMBER {$$ = $1;} */
-/*     ; */
-
 exCondicional: CONDICIONAL {
              printf("Expresion condicional =%d\n", $$);
              return 0;
              }
+
 CONDICIONAL: NUMBER '=' '=' NUMBER {
            $$ = ($1 == $4);
            };
-NUMBER: NUMBER {
-
-      }
 %%
   
 //driver code
