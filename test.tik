@@ -24,6 +24,10 @@ manaimapas saludar() {
     }
 };
 
+chaymantapacha (; a1 == a3 ; a1 = a1+1 ){
+    imprimiy("Cargando");
+}
+
 saludar();
 
 

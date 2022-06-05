@@ -26,6 +26,7 @@ int yyerror(char *s);
 %token IF
 %token ELSE
 %token WHILE
+%token FOR
 
 %left '+' '-'
 %left '*' '/'
@@ -43,16 +44,17 @@ programa:
     | instruccion
 
 instruccion:
-    bloque_if
+    bloque_for
+    | bloque_if
     | bloque_while
     | declaracion 
-    | asignacion 
+    | asignacion FININSTRUCCION
     | retorno
     | primitivo 
     | expresion FININSTRUCCION
 
 bloque_instrucciones:
-    BLOQUEIZQ programa BLOQUEDER
+    BLOQUEIZQ programa BLOQUEDER {printf("Bloque de instrucciones\n");}
 
 inmediato:
     NUMERICO
@@ -64,7 +66,7 @@ declaracion:
     | TIPO IDENTIFICADOR ASIGNADOR expresion FININSTRUCCION                 {printf("Declaracion de variable con asignacion\n");}
 
 asignacion:
-    IDENTIFICADOR ASIGNADOR expresion FININSTRUCCION                        {printf("Asignacion\n");}
+    IDENTIFICADOR ASIGNADOR expresion                        {printf("Asignacion\n");}
 
 retorno:
     RETORNO expresion FININSTRUCCION                                        {printf("Retorno\n");}
@@ -109,6 +111,20 @@ bloque_else:
 bloque_while:
     WHILE PARAIZQ expresion PARADER bloque_instrucciones {printf("Bloque while\n");}
 
+declaracion_for:
+    declaracion
+    | FININSTRUCCION
+
+condicion_for:
+    expresion FININSTRUCCION
+    | FININSTRUCCION
+
+actualizacion_for:
+    asignacion 
+    | %empty
+
+bloque_for:
+    FOR PARAIZQ declaracion_for condicion_for actualizacion_for PARADER bloque_instrucciones {printf("Bloque for\n");}
 %%
 
 /* Sección CODIGO USUARIO */
@@ -123,6 +139,7 @@ int main() {
     agregar_palabra(IF,"sichus");
     agregar_palabra(ELSE,"manachayqa");
     agregar_palabra(WHILE,"chaykama");
+    agregar_palabra(FOR,"chaymantapacha");
     agregar_palabra(ASIGNADOR,"=");
     agregar_palabra(OPERADOR,"+");
     agregar_palabra(OPERADOR,"-");
