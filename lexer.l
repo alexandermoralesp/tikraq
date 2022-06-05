@@ -16,18 +16,19 @@ int buscar_palabra(char *palabra);
 
 /* Sección REGLAS */
 %%
-\;           {estado = BUSCAR; return FININSTRUCCION;}
-\{          {printf("(lexico) BLOQUEIZQ\n"); return BLOQUEIZQ;}
-\}          { printf("(lexico) BLOQUEDER\n"); return BLOQUEDER;}
-\(          {printf("(lexico) PARAIZQ\n"); return PARAIZQ;}
-\)          { printf("(lexico) PARADER\n"); return PARADER;}
-var         { printf("(lexico) DECLARADOR\n"); estado = IDENTIFICADOR; return DECLARADOR;}
-nisqa       { printf("(lexico) DECLARADOR\n");  estado = IDENTIFICADOR; return DECLARADOR;}
-kutichiy    { printf("(lexico) RETORNO\n");  return RETORNO;}
-\=          { printf("(lexico) ASIGNADOR\n"); return ASIGNADOR;}
-\+|\-|\/|\* { printf("(lexico) OPERADOR\n"); return OPERADOR;}
-\,          { printf("(lexico) SEPARADOR\n"); return SEPARADOR;}
-[0-9]+      { printf("(lexico) NUMERICO\n"); return NUMERICO;}
+\;                          {estado = BUSCAR; return FININSTRUCCION;}
+\{                          {printf("(lexico) BLOQUEIZQ\n"); return BLOQUEIZQ;}
+\}                          {printf("(lexico) BLOQUEDER\n"); return BLOQUEDER;}
+\(                          {printf("(lexico) PARAIZQ\n"); return PARAIZQ;}
+\)                          { printf("(lexico) PARADER\n"); return PARADER;}
+yupay|qaytu|manaimapas      { printf("(lexico) TIPO\n");  estado = IDENTIFICADOR; return TIPO;}
+imprimiy                    { printf("(lexico) PRIMITIVO\n"); return PRIMITIVO;}
+kutichiy                    { printf("(lexico) RETORNO\n");  return RETORNO;}
+\=                          { printf("(lexico) ASIGNADOR\n"); return ASIGNADOR;}
+\+|\-|\/|\*                 { printf("(lexico) OPERADOR\n"); return OPERADOR;}
+\,                          { printf("(lexico) SEPARADOR\n"); return SEPARADOR;}
+[0-9]+                      { printf("(lexico) NUMERICO\n"); return NUMERICO;}
+\"[a-zA-Z0-9]*\"            { printf("(lexico) CADENA\n"); return CADENA;}
 [a-zA-Z][a-zA-Z0-9]*  {/*procesar palabras*/
                 if (estado != BUSCAR) {
                     agregar_palabra(estado, yytext);

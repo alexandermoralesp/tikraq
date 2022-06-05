@@ -1,18 +1,20 @@
-var a1 = 1;
-var a2 = 2;
-var a3 = 3;
+yupay a1 = 1;
+yupay a2 = 2;
+yupay a3 = 3;
 
-nisqa saludar() {
-    var a = 0;
-    var i = 0;
+manaimapas saludar() {
+    yupay a = 0;
+    yupay i = 0;
+    qaytu texto = "test";
+    imprimiy(texto);
 };
 
-nisqa foo(var in1) {
-    var t = in1+3;
+yupay foo(yupay in1) {
+    yupay t = in1+3;
     kutichiy t+10;
 };
 
-foo();
+foo(a1);
 
 
 
