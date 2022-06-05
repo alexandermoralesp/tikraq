@@ -24,8 +24,10 @@ int buscar_palabra(char *palabra);
 yupay|qaytu|manaimapas      { printf("(lexico) TIPO\n");  estado = IDENTIFICADOR; return TIPO;}
 imprimiy                    { printf("(lexico) PRIMITIVO\n"); return PRIMITIVO;}
 kutichiy                    { printf("(lexico) RETORNO\n");  return RETORNO;}
+sichus                      { printf("(lexico) IF\n"); return IF;}
+manachayqa                  { printf("(lexico) ELSE\n");  return ELSE;}
 \=                          { printf("(lexico) ASIGNADOR\n"); return ASIGNADOR;}
-\+|\-|\/|\*                 { printf("(lexico) OPERADOR\n"); return OPERADOR;}
+\+|\-|\/|\*|\=\=|\<|\>|\<\=|\>\=         { printf("(lexico) OPERADOR\n"); return OPERADOR;}
 \,                          { printf("(lexico) SEPARADOR\n"); return SEPARADOR;}
 [0-9]+                      { printf("(lexico) NUMERICO\n"); return NUMERICO;}
 \"[a-zA-Z0-9]*\"            { printf("(lexico) CADENA\n"); return CADENA;}

@@ -23,6 +23,8 @@ int yyerror(char *s);
 %token CADENA
 %token RETORNO
 %token PRIMITIVO
+%token IF
+%token ELSE
 
 %left '+' '-'
 %left '*' '/'
@@ -39,16 +41,19 @@ programa:
     | instruccion
 
 instruccion:
-    declaracion 
+    bloque_if
+    | declaracion 
     | asignacion 
     | retorno
     | primitivo 
     | expresion FININSTRUCCION
 
+bloque_instrucciones:
+    BLOQUEIZQ programa BLOQUEDER
 
 declaracion:
     TIPO IDENTIFICADOR FININSTRUCCION                                       {printf("Declaracion de variable\n");}
-    | TIPO declaracion_funcion BLOQUEIZQ programa BLOQUEDER FININSTRUCCION  {printf("Declaracion de funcion\n");}
+    | TIPO declaracion_funcion bloque_instrucciones FININSTRUCCION  {printf("Declaracion de funcion\n");}
     | TIPO IDENTIFICADOR ASIGNADOR expresion FININSTRUCCION                 {printf("Declaracion de variable con asignacion\n");}
 
 asignacion:
@@ -72,7 +77,7 @@ expresion_rec:
     | llamada_funcion
 
 declaracion_funcion:
-    IDENTIFICADOR PARAIZQ declaracion_parametros PARADER {printf("Declaracion Funcion\n");}
+    IDENTIFICADOR PARAIZQ declaracion_parametros PARADER {printf("Cabezera de declaracion Funcion\n");}
 declaracion_parametros:
     TIPO IDENTIFICADOR declaracion_parametros_rec
     | %empty
@@ -89,6 +94,12 @@ llamada_parametros_rec:
     SEPARADOR IDENTIFICADOR llamada_parametros_rec
     | %empty
 
+bloque_if:
+    IF PARAIZQ expresion PARADER bloque_instrucciones bloque_else {printf("Bloque if\n");}
+bloque_else:
+    ELSE bloque_instrucciones {printf("Bloque else\n");}
+    | %empty
+
 %%
 
 /* Sección CODIGO USUARIO */
@@ -100,6 +111,8 @@ int main() {
     agregar_palabra(TIPO,"yupay");
     agregar_palabra(TIPO,"qaytu");
     agregar_palabra(TIPO,"manaimapas");
+    agregar_palabra(IF,"sichus");
+    agregar_palabra(ELSE,"manachayqa");
     agregar_palabra(ASIGNADOR,"=");
     agregar_palabra(OPERADOR,"+");
     agregar_palabra(OPERADOR,"-");
