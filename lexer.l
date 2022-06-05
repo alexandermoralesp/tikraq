@@ -22,7 +22,7 @@ int buscar_palabra(char *palabra);
 \(                          {printf("(lexico) PARAIZQ\n"); return PARAIZQ;}
 \)                          { printf("(lexico) PARADER\n"); return PARADER;}
 yupay|qaytu|manaimapas      { printf("(lexico) TIPO\n");  estado = IDENTIFICADOR; return TIPO;}
-imprimiy                    { printf("(lexico) PRIMITIVO\n"); return PRIMITIVO;}
+imprimiy|yaykuchiy          { printf("(lexico) PRIMITIVO\n"); return PRIMITIVO;}
 kutichiy                    { printf("(lexico) RETORNO\n");  return RETORNO;}
 sichus                      { printf("(lexico) IF\n"); return IF;}
 manachayqa                  { printf("(lexico) ELSE\n");  return ELSE;}

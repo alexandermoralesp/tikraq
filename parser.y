@@ -47,10 +47,9 @@ instruccion:
     bloque_for
     | bloque_if
     | bloque_while
+    | retorno
     | declaracion 
     | asignacion FININSTRUCCION
-    | retorno
-    | primitivo 
     | expresion FININSTRUCCION
 
 bloque_instrucciones:
@@ -72,7 +71,7 @@ retorno:
     RETORNO expresion FININSTRUCCION                                        {printf("Retorno\n");}
 
 primitivo:
-    PRIMITIVO PARAIZQ llamada_parametros PARADER FININSTRUCCION             {printf("Llamada a primitivo\n");}
+    PRIMITIVO PARAIZQ llamada_parametros PARADER              {printf("Llamada a primitivo\n");}
 
 expresion:
     expresion_rec {printf("Expresion\n");}
@@ -82,6 +81,7 @@ expresion_rec:
     | PARAIZQ expresion_rec PARADER
     | IDENTIFICADOR
     | inmediato
+    | primitivo
     | llamada_funcion
 
 declaracion_funcion:
@@ -132,6 +132,7 @@ FILE *yyin;
 int main() {
     agregar_palabra(FININSTRUCCION,";");
     agregar_palabra(PRIMITIVO,"imprimiy");
+    agregar_palabra(PRIMITIVO,"yaykuchiy");
     agregar_palabra(RETORNO,"kutichiy");
     agregar_palabra(TIPO,"yupay");
     agregar_palabra(TIPO,"qaytu");

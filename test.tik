@@ -1,6 +1,6 @@
 yupay a1 = 1;
 yupay a2 = 2;
-yupay a3 = 3;
+yupay a3 = yaykuchiy();
 
 yupay foo(yupay in1) {
     yupay t = in1+3;
