@@ -51,6 +51,10 @@ instruccion:
 bloque_instrucciones:
     BLOQUEIZQ programa BLOQUEDER
 
+inmediato:
+    NUMERICO
+    | CADENA
+
 declaracion:
     TIPO IDENTIFICADOR FININSTRUCCION                                       {printf("Declaracion de variable\n");}
     | TIPO declaracion_funcion bloque_instrucciones FININSTRUCCION  {printf("Declaracion de funcion\n");}
@@ -72,8 +76,7 @@ expresion_rec:
     expresion_rec OPERADOR expresion_rec
     | PARAIZQ expresion_rec PARADER
     | IDENTIFICADOR
-    | NUMERICO
-    | CADENA
+    | inmediato
     | llamada_funcion
 
 declaracion_funcion:
@@ -88,10 +91,10 @@ declaracion_parametros_rec:
 llamada_funcion:
     IDENTIFICADOR PARAIZQ llamada_parametros PARADER {printf("Llamada Funcion\n");}
 llamada_parametros:
-    IDENTIFICADOR llamada_parametros_rec
+    expresion llamada_parametros_rec
     | %empty
 llamada_parametros_rec:
-    SEPARADOR IDENTIFICADOR llamada_parametros_rec
+    SEPARADOR expresion llamada_parametros_rec
     | %empty
 
 bloque_if:

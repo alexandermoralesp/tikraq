@@ -17,7 +17,7 @@ manaimapas saludar() {
         imprimiy(texto);
     }
     manachayqa {
-        imprimiy(texto2);
+        imprimiy("Falso");
     }
 };
 
