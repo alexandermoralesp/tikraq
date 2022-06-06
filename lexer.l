@@ -28,8 +28,8 @@ sichus                      { printf("(lexico) IF\n"); return IF;}
 manachayqa                  { printf("(lexico) ELSE\n");  return ELSE;}
 chaykama                    { printf("(lexico) WHILE\n");  return WHILE;}
 chaymantapacha              { printf("(lexico) FOR\n");  return FOR;}
-\=                          { printf("(lexico) ASIGNADOR\n"); return ASIGNADOR;}
 \+|\-|\/|\*|\=\=|\<|\>|\<\=|\>\=         { printf("(lexico) OPERADOR\n"); return OPERADOR;}
+\=                          { printf("(lexico) ASIGNADOR\n"); return ASIGNADOR;}
 \,                          { printf("(lexico) SEPARADOR\n"); return SEPARADOR;}
 [0-9]+                      { printf("(lexico) NUMERICO\n"); return NUMERICO;}
 \"[a-zA-Z0-9]*\"            { printf("(lexico) CADENA\n"); return CADENA;}
