@@ -1,0 +1,29 @@
+manaimapas foo() {
+    yupay yupay1 = 1;
+    yupay yupay2 = 2;
+    yupay tukusqa = yupay1 + yupay2;
+};
+
+manaimapas bar() {
+    qaytu saludo = "Allinllachu Pacha";
+    imprimiy(saludo);
+};
+
+manaimapas another() {
+    sichus (1 == 1) {
+        imprimiy("chiqaq");
+    } manachayqa {
+        imprimiy("pantasqa");
+    }
+};
+
+manaimapas bucles() {
+    chaymantapacha (yupay a = 1; a < 10; a = a+1) {
+        imprimiy(a);
+    }
+    yupay i = 0;
+    chaykama (i < 10) {
+        imprimiy(i);
+        i = i + 1;
+    }
+};
