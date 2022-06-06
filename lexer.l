@@ -16,14 +16,29 @@ int buscar_palabra(char *palabra);
 
 /* Sección REGLAS */
 %%
-\n          {estado = BUSCAR;}
-^var        {estado = IDENTIFICADOR;}
-\+|\-|\/|\* { printf("(lexico) OPERADOR\n"); return OPERADOR;}
-\(          { printf("(lexico) PARA\n"); return PARA;}
-\)          { printf("(lexico) PARC\n"); return PARC;}
-[a-zA-Z]+   {/*procesar palabras*/
+\;                          {estado = BUSCAR; return FININSTRUCCION;}
+\{                          {printf("(lexico) BLOQUEIZQ\n"); return BLOQUEIZQ;}
+\}                          {printf("(lexico) BLOQUEDER\n"); return BLOQUEDER;}
+\(                          {printf("(lexico) PARAIZQ\n"); return PARAIZQ;}
+\)                          { printf("(lexico) PARADER\n"); return PARADER;}
+yupay|qaytu|manaimapas      { printf("(lexico) TIPO\n");  estado = IDENTIFICADOR; return TIPO;}
+imprimiy|yaykuchiy          { printf("(lexico) PRIMITIVO\n"); return PRIMITIVO;}
+kutichiy                    { printf("(lexico) RETORNO\n");  return RETORNO;}
+sichus                      { printf("(lexico) IF\n"); return IF;}
+manachayqa                  { printf("(lexico) ELSE\n");  return ELSE;}
+chaykama                    { printf("(lexico) WHILE\n");  return WHILE;}
+chaymantapacha              { printf("(lexico) FOR\n");  return FOR;}
+\=                          { printf("(lexico) ASIGNADOR\n"); return ASIGNADOR;}
+\+|\-|\/|\*|\=\=|\<|\>|\<\=|\>\=         { printf("(lexico) OPERADOR\n"); return OPERADOR;}
+\,                          { printf("(lexico) SEPARADOR\n"); return SEPARADOR;}
+[0-9]+                      { printf("(lexico) NUMERICO\n"); return NUMERICO;}
+\"[a-zA-Z0-9]*\"            { printf("(lexico) CADENA\n"); return CADENA;}
+[a-zA-Z][a-zA-Z0-9]*  {/*procesar palabras*/
                 if (estado != BUSCAR) {
                     agregar_palabra(estado, yytext);
+                    printf("(lexico) IDENTIFICADOR\n");
+                    estado = BUSCAR; 
+                    return IDENTIFICADOR;
                 }
                 else {
                     switch ( buscar_palabra(yytext) ) {
@@ -34,12 +49,8 @@ int buscar_palabra(char *palabra);
                     }
                 }
             }/*fin procesar palabras*/
-.           /*ignorar cualquier otro símbolo*/
-^nisqa      {estado = FUNCION}
-^imprimy    {estado = IMPRIMIR}
-^manta      {estado = FOR}
-^mientras   {estado = WHILE}
-^kutichiy   {estado = return}
+
+" "           /*ignorar cualquier otro símbolo*/
 %%
 
 /* Sección CODIGO USUARIO */

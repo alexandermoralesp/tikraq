@@ -1,0 +1,34 @@
+yupay a1 = 1;
+yupay a2 = 2;
+yupay a3 = yaykuchiy();
+
+yupay foo(yupay in1) {
+    yupay t = in1+3;
+    chaykama (t < 10) {
+        in1 = in1-1;
+    }
+    kutichiy t+10;
+};
+
+
+manaimapas saludar() {
+    yupay a = 0;
+    yupay i = 0;
+    qaytu texto = "test";
+    qaytu texto2 = "test2";
+    sichus (foo(a) <= i) {
+        imprimiy(texto);
+    }
+    manachayqa {
+        imprimiy("Falso");
+    }
+};
+
+chaymantapacha (; a1 == a3 ; a1 = a1+1 ){
+    imprimiy("Cargando");
+}
+
+saludar();
+
+
+
