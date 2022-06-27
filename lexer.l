@@ -44,7 +44,7 @@ chaymantapacha              { printf("(lexico) FOR\n");  return FOR;}
                     switch ( buscar_palabra(yytext) ) {
                     case IDENTIFICADOR:{ printf("(lexico) IDENTIFICADOR\n"); return IDENTIFICADOR;}
                     default:
-                        printf("%s: no se reconoce\n", yytext); 
+                        printf("%s: No se reconoce\n", yytext); 
                         /*no retornar nada*/
                     }
                 }
