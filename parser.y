@@ -37,7 +37,7 @@ int yyerror(char *s);
 
 %%
 s:
-    programa
+    programa {printf("FIN\n");}
 
 programa:
     instruccion programa
@@ -51,30 +51,33 @@ instruccion:
     | declaracion 
     | asignacion FININSTRUCCION
     | expresion FININSTRUCCION
+    | error FININSTRUCCION {printf("(sintactico) [ERROR] Instruccion invalida\n");}
 
 bloque_instrucciones:
-    BLOQUEIZQ programa BLOQUEDER {printf("Bloque de instrucciones\n");}
+    BLOQUEIZQ programa BLOQUEDER {printf("(sintactico) Bloque de instrucciones\n");}
 
 inmediato:
     NUMERICO
     | CADENA
 
 declaracion:
-    TIPO IDENTIFICADOR FININSTRUCCION                                       {printf("Declaracion de variable\n");}
-    | TIPO declaracion_funcion bloque_instrucciones FININSTRUCCION  {printf("Declaracion de funcion\n");}
-    | TIPO IDENTIFICADOR ASIGNADOR expresion FININSTRUCCION                 {printf("Declaracion de variable con asignacion\n");}
+    TIPO IDENTIFICADOR FININSTRUCCION                                       {printf("(sintactico) Declaracion de variable\n");}
+    | TIPO declaracion_funcion bloque_instrucciones FININSTRUCCION          {printf("(sintactico) Declaracion de funcion\n");}
+    | TIPO IDENTIFICADOR ASIGNADOR expresion FININSTRUCCION                 {printf("(sintactico) Declaracion de variable con asignacion\n");}
+    | TIPO error FININSTRUCCION                                             {printf("(sintactico) [ERROR] Declaracion invalida\n");}
 
 asignacion:
-    IDENTIFICADOR ASIGNADOR expresion                        {printf("Asignacion\n");}
+    IDENTIFICADOR ASIGNADOR expresion                                       {printf("(sintactico) Asignacion\n");}
 
 retorno:
-    RETORNO expresion FININSTRUCCION                                        {printf("Retorno\n");}
+    RETORNO expresion FININSTRUCCION                                        {printf("(sintactico) Retorno\n");}
+    | RETORNO error FININSTRUCCION                                          {printf("(sintactico) [ERROR] Expresion de retorno invalida\n");}
 
 primitivo:
-    PRIMITIVO PARAIZQ llamada_parametros PARADER              {printf("Llamada a primitivo\n");}
+    PRIMITIVO PARAIZQ llamada_parametros PARADER                            {printf("(sintactico) Llamada a primitivo\n");}
 
 expresion:
-    expresion_rec {printf("Expresion\n");}
+    expresion_rec {printf("(sintactico) Expresion\n");}
 
 expresion_rec:
     expresion_rec OPERADOR expresion_rec
@@ -85,7 +88,7 @@ expresion_rec:
     | llamada_funcion
 
 declaracion_funcion:
-    IDENTIFICADOR PARAIZQ declaracion_parametros PARADER {printf("Cabezera de declaracion Funcion\n");}
+    IDENTIFICADOR PARAIZQ declaracion_parametros PARADER                   {printf("(sintactico) Cabezera de declaracion Funcion\n");}
 declaracion_parametros:
     TIPO IDENTIFICADOR declaracion_parametros_rec
     | %empty
@@ -94,7 +97,7 @@ declaracion_parametros_rec:
     | %empty
 
 llamada_funcion:
-    IDENTIFICADOR PARAIZQ llamada_parametros PARADER {printf("Llamada Funcion\n");}
+    IDENTIFICADOR PARAIZQ llamada_parametros PARADER {printf("(sintactico) Llamada Funcion\n");}
 llamada_parametros:
     expresion llamada_parametros_rec
     | %empty
@@ -103,19 +106,16 @@ llamada_parametros_rec:
     | %empty
 
 bloque_if:
-    IF PARAIZQ expresion PARADER bloque_instrucciones bloque_else {printf("Bloque if\n");} |
-    IF expresion PARADER bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis izquierdo en la expresion\n");} |
-    IF PARAIZQ expresion bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis derecho en la expresion\n");} | %empty
-
+    IF PARAIZQ expresion PARADER bloque_instrucciones bloque_else {printf("(sintactico) Bloque if\n");} |
+    IF PARAIZQ error PARADER bloque_instrucciones bloque_else {printf("(sintactico) [ERROR] Definicion de condicion en bloque if invalida\n");}
 
 bloque_else:
-    ELSE bloque_instrucciones {printf("Bloque else\n");}
+    ELSE bloque_instrucciones {printf("(sintactico) Bloque else\n");}
     | %empty
 
 bloque_while:
-    WHILE PARAIZQ expresion PARADER bloque_instrucciones {printf("Bloque while\n");} |
-    WHILE expresion PARADER bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis izquierdo en la expresion\n");} |
-    WHILE PARAIZQ expresion bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis derecho en la expresion\n");}
+    WHILE PARAIZQ expresion PARADER bloque_instrucciones {printf("(sintactico) Bloque while\n");} |
+    WHILE PARAIZQ error PARADER bloque_instrucciones {printf("(sintactico) [ERROR] Definicion de condicion en bloque while invalida\n");}
 
 declaracion_for:
     declaracion
@@ -130,11 +130,12 @@ actualizacion_for:
     | %empty
 
 bloque_for:
-    FOR PARAIZQ declaracion_for condicion_for actualizacion_for PARADER bloque_instrucciones {printf("Bloque for\n");}
+    FOR PARAIZQ declaracion_for condicion_for actualizacion_for PARADER bloque_instrucciones {printf("(sintactico) Bloque for\n");} |
+    FOR PARAIZQ error PARADER bloque_instrucciones  {printf("(sintactico) [ERROR] Definicion de condiciones en bloque for invalida\n");}
 %%
 
 /* Sección CODIGO USUARIO */
-FILE *yyin0;
+FILE *yyin;
 int main() {
     agregar_palabra(FININSTRUCCION,";");
     agregar_palabra(PRIMITIVO,"imprimiy");
@@ -158,7 +159,7 @@ int main() {
     agregar_palabra(BLOQUEDER,"}");
     do {
         yyparse();
-    } while ( !feof(yyin0) );
+    } while ( !feof(yyin) );
     
     return 0;
 }

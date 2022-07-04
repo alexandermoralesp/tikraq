@@ -9,8 +9,14 @@
 #define BUSCAR 0
 
 int estado;
+int tipo;
 int agregar_palabra(int tipo, char *palabra);
 int buscar_palabra(char *palabra);
+
+#define YUPAY 1
+#define QAYTU 2
+#define MANAIMAPAS 3
+
 
 %}
 
@@ -21,7 +27,9 @@ int buscar_palabra(char *palabra);
 \}                          {printf("(lexico) BLOQUEDER\n"); return BLOQUEDER;}
 \(                          {printf("(lexico) PARAIZQ\n"); return PARAIZQ;}
 \)                          { printf("(lexico) PARADER\n"); return PARADER;}
-yupay|qaytu|manaimapas      { printf("(lexico) TIPO\n");  estado = IDENTIFICADOR; return TIPO;}
+yupay                       { printf("(lexico) TIPO\n");  estado = IDENTIFICADOR; tipo=YUPAY; return TIPO;}
+qaytu                       { printf("(lexico) TIPO\n");  estado = IDENTIFICADOR; tipo=QAYTU; return TIPO;}
+manaimapas                  { printf("(lexico) TIPO\n");  estado = IDENTIFICADOR; tipo=MANAIMAPAS; return TIPO;}
 imprimiy|yaykuchiy          { printf("(lexico) PRIMITIVO\n"); return PRIMITIVO;}
 kutichiy                    { printf("(lexico) RETORNO\n");  return RETORNO;}
 sichus                      { printf("(lexico) IF\n"); return IF;}
@@ -44,13 +52,17 @@ chaymantapacha              { printf("(lexico) FOR\n");  return FOR;}
                     switch ( buscar_palabra(yytext) ) {
                     case IDENTIFICADOR:{ printf("(lexico) IDENTIFICADOR\n"); return IDENTIFICADOR;}
                     default:
-                        printf("%s: No se reconoce\n", yytext); 
-                        /*no retornar nada*/
+                        {
+                          printf("(Otros) [ERROR] %s: No se reconoce\n", yytext); 
+                          /*Se retorna identificador para que el parse asuma que es el caso y pueda seguir procesando*/
+                          return IDENTIFICADOR;
+                        }
                     }
                 }
             }/*fin procesar palabras*/
 
-" "           /*ignorar cualquier otro símbolo*/
+[" "\n]         {} /*ignorar cualquier otro símbolo*/
+. {printf("(lexico) [ERROR] UNEXPECTED CHARACTER: %c\n", yytext[0]);}
 %%
 
 /* Sección CODIGO USUARIO */
