@@ -132,7 +132,9 @@ actualizacion_for:
     | %empty
 
 bloque_for:
-    FOR PARAIZQ declaracion_for condicion_for actualizacion_for PARADER bloque_instrucciones {printf("Bloque for\n");}
+    FOR PARAIZQ declaracion_for condicion_for actualizacion_for PARADER bloque_instrucciones {printf("Bloque for\n");} |
+    FOR declaracion_for condicion_for actualizacion_for PARADER bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis izquierdo en la cabecera FOR\n");} |
+    FOR PARAIZQ declaracion_for condicion_for actualizacion_for bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis derecho en la cabecera FOR\n");}
 %%
 
 /* Sección CODIGO USUARIO */
