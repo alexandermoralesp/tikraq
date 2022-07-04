@@ -88,7 +88,9 @@ expresion_rec:
     | llamada_funcion
 
 declaracion_funcion:
-    IDENTIFICADOR PARAIZQ declaracion_parametros PARADER                   {printf("(sintactico) Cabezera de declaracion Funcion\n");}
+    IDENTIFICADOR PARAIZQ declaracion_parametros PARADER                   {printf("(sintactico) Cabezera de declaracion Funcion\n");} |
+    IDENTIFICADOR declaracion_parametros PARADER {printf("[ERROR] Falta añadir el parentesis izquierdo en la cabecera de función\n");} | 
+    IDENTIFICADOR PARAIZQ declaracion_parametros {printf("[ERROR] Falta añadir el parentesis derecho en la cabecera de función\n");}
 declaracion_parametros:
     TIPO IDENTIFICADOR declaracion_parametros_rec
     | %empty
@@ -107,7 +109,9 @@ llamada_parametros_rec:
 
 bloque_if:
     IF PARAIZQ expresion PARADER bloque_instrucciones bloque_else {printf("(sintactico) Bloque if\n");} |
-    IF PARAIZQ error PARADER bloque_instrucciones bloque_else {printf("(sintactico) [ERROR] Definicion de condicion en bloque if invalida\n");}
+    IF expresion PARADER bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis izquierdo en la cabecera IF\n");} |
+    IF PARAIZQ expresion bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis derecho en la cabecera IF\n");} | 
+    IF PARAIZQ error PARADER bloque_instrucciones bloque_else {printf("(sintactico) [ERROR] Definicion de condicion en bloque if invalida\n");} | %empty
 
 bloque_else:
     ELSE bloque_instrucciones {printf("(sintactico) Bloque else\n");}
@@ -115,6 +119,8 @@ bloque_else:
 
 bloque_while:
     WHILE PARAIZQ expresion PARADER bloque_instrucciones {printf("(sintactico) Bloque while\n");} |
+    WHILE expresion PARADER bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis izquierdo en la cabecera WHILE\n");} |
+    WHILE PARAIZQ expresion bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis derecho en la cabecera WHILE\n");} |
     WHILE PARAIZQ error PARADER bloque_instrucciones {printf("(sintactico) [ERROR] Definicion de condicion en bloque while invalida\n");}
 
 declaracion_for:
@@ -131,6 +137,8 @@ actualizacion_for:
 
 bloque_for:
     FOR PARAIZQ declaracion_for condicion_for actualizacion_for PARADER bloque_instrucciones {printf("(sintactico) Bloque for\n");} |
+    FOR declaracion_for condicion_for actualizacion_for PARADER bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis izquierdo en la cabecera FOR\n");} |
+    FOR PARAIZQ declaracion_for condicion_for actualizacion_for bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis derecho en la cabecera FOR\n");} |
     FOR PARAIZQ error PARADER bloque_instrucciones  {printf("(sintactico) [ERROR] Definicion de condiciones en bloque for invalida\n");}
 %%
 
