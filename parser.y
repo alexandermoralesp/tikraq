@@ -106,8 +106,8 @@ llamada_parametros_rec:
 
 bloque_if:
     IF PARAIZQ expresion PARADER bloque_instrucciones bloque_else {printf("Bloque if\n");} |
-    IF expresion PARADER bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis izquierdo en la expresion\n");} |
-    IF PARAIZQ expresion bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis derecho en la expresion\n");} | %empty
+    IF expresion PARADER bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis izquierdo en la cabecera IF\n");} |
+    IF PARAIZQ expresion bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis derecho en la cabecera IF\n");} | %empty
 
 
 bloque_else:
@@ -116,8 +116,8 @@ bloque_else:
 
 bloque_while:
     WHILE PARAIZQ expresion PARADER bloque_instrucciones {printf("Bloque while\n");} |
-    WHILE expresion PARADER bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis izquierdo en la expresion\n");} |
-    WHILE PARAIZQ expresion bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis derecho en la expresion\n");}
+    WHILE expresion PARADER bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis izquierdo en la cabecera WHILE\n");} |
+    WHILE PARAIZQ expresion bloque_instrucciones {printf("[ERROR] Falta añadir el parentesis derecho en la cabecera WHILE\n");}
 
 declaracion_for:
     declaracion
