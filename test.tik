@@ -1,34 +1,30 @@
-yupay a1 = 1;
-yupay a2 = 2;
-yupay a3 = yaykuchiy();
-
-yupay foo(yupay in1) {
-    yupay t = in1+3;
-    chaykama (t < 10) {
-        in1 = in1-1;
-    }
-    kutichiy t+10;
+yupay foo_sumar(yupay yupay1, yupay yupay2) {
+  $%&
+    yupay tukusqa = yupay1 + yupay2;
+    kutichiy tukusqa;
 };
-
-
-manaimapas saludar() {
-    yupay a = 0;
+manaimapas bar_saludo() {
+    qaytu saludo = "Allinllachu Pacha";
+    imprimiy(saludo);
+};
+manaimapas suma_igual(yupay in1, yupay in2, yupay res) {
+    sichus ( foo_sumar(in1, in2) === res ) {
+        imprimiy("chiqaq");
+    } manachayqa {
+        imprimiy("pantasqa");
+    }
+};
+manaimapas main() {
+    yupay b = 3;
+    yupay c = 10;
+    chaymantapacha (yupay a = 1; a < 10; a = a+1) {
+        imprimiy(a);
+        suma_igual(a,b,d);
+    }
     yupay i = 0;
-    qaytu texto = "test";
-    qaytu texto2 = "test2";
-    sichus (foo(a) <= i) {
-        imprimiy(texto);
-    }
-    manachayqa {
-        imprimiy("Falso");
+    chaykama (i < 10) {
+        bar_saludo();
+        i = i + 1;
     }
 };
-
-chaymantapacha (; a1 == a3 ; a1 = a1+1 ){
-    imprimiy("Cargando");
-}
-
-saludar();
-
-
-
+main();

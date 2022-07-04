@@ -18,3 +18,6 @@ maneje de manera básica términos en inglés (siendo éste el estándar base pa
 la idea principal de la propuesta es cubrir ese vacío adaptando la sintaxis al Quechua, siendo esta una
 manera más accesible para el sector quechuahablante.
 
+```
+compiladores@linux$ ./lexpar < test.tik
+```
