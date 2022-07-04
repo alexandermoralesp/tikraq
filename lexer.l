@@ -53,7 +53,7 @@ chaymantapacha              { printf("(lexico) FOR\n");  return FOR;}
                     case IDENTIFICADOR:{ printf("(lexico) IDENTIFICADOR\n"); return IDENTIFICADOR;}
                     default:
                         {
-                          printf("(Otros) [ERROR] %s: No se reconoce\n", yytext); 
+                          printf("(Semantico) [ERROR] %s: No se reconoce\n", yytext); 
                           /*Se retorna identificador para que el parse asuma que es el caso y pueda seguir procesando*/
                           return IDENTIFICADOR;
                         }
