@@ -86,8 +86,8 @@ expresion_rec:
 
 declaracion_funcion:
     IDENTIFICADOR PARAIZQ declaracion_parametros PARADER {printf("Cabezera de declaracion Funcion\n");} | 
-    IDENTIFICADOR declaracion_parametros PARADER {printf("[ERROR] Falta añadir el parentesis izquierdo en la cabecera\n");} | 
-    IDENTIFICADOR PARAIZQ declaracion_parametros {printf("[ERROR] Falta añadir el parentesis derecho en la cabecera\n");}
+    IDENTIFICADOR declaracion_parametros PARADER {printf("[ERROR] Falta añadir el parentesis izquierdo en la cabecera de función\n");} | 
+    IDENTIFICADOR PARAIZQ declaracion_parametros {printf("[ERROR] Falta añadir el parentesis derecho en la cabecera de función\n");}
 declaracion_parametros:
     TIPO IDENTIFICADOR declaracion_parametros_rec
     | %empty
