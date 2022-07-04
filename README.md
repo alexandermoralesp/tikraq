@@ -1,6 +1,21 @@
-# Tikraq
-<p style="text-align: center;">
-    <img src="./images/tikraq.png" alt="drawing" style="width:300px;"/>
+<h1 align="center">
+  <br>
+  <br>
+  Tikraq
+  <br>
+</h1>
+<p align="center">
+  <img src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white">
+  <img src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white">
+  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">
+  <img src="https://img.shields.io/badge/NeoVim-%2357A143.svg?&style=for-the-badge&logo=neovim&logoColor=white">
+  <img src="https://img.shields.io/badge/CMake-%23008FBA.svg?style=for-the-badge&logo=cmake&logoColor=white">
+  <img src="https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white">
+  <br>
+  <br>
+</p>
+<p align="center">
+  <img src="./images/tikraq.png" alt="drawing" style="width:300px;"/>
 </p>
 
 # Integrantes
